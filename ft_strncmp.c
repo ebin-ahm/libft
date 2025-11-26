@@ -6,11 +6,11 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 19:14:20 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/26 19:30:24 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/26 19:53:11 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
