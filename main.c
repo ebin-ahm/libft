@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/26 20:47:50 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/26 21:24:07 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ int	main(void)
 	printf("%d\n", ft_strncmp("a", "", 1));              // positive ('a' - '\0')
 	printf("%d\n", ft_strncmp("", "a", 1));              // negative ('\0' - 'a')
 	printf("%d\n", ft_strncmp("abcdef", "abc\0xx", 6));  // 'd' - '\0' = positive
-
 	/* ==================+++++++++================== */
 
 		/* ================== memchr ================== */
@@ -116,6 +115,25 @@ int	main(void)
 	printf("%s\n", (char *)ft_memchr(c, 'w', 11));  // "world"
 	printf("%s\n", (char *)ft_memchr(c, 'l', 11));  // "llo world"
 	printf("%p\n", ft_memchr(c, 'z', 11));          // NULL
+	/* ==================+++++++++================== */
+
+	/* ================== memcmp ================== */
+	printf("\n-- memcmp test --\n");
+	unsigned char a1[] = {1, 2, 3, 4, 5};
+	unsigned char a2[] = {1, 2, 3, 4, 5};
+	unsigned char a3[] = {1, 2, 4, 4, 5};
+
+	printf("memcmp(a1, a2, 5) = %d (expect 0)\n",
+	ft_memcmp(a1, a2, 5));
+
+	printf("memcmp(a1, a3, 5) = %d (expect < 0)\n",
+	ft_memcmp(a1, a3, 5)); // first diff: 3 < 4
+
+	printf("memcmp(a3, a1, 5) = %d (expect > 0)\n",
+	ft_memcmp(a3, a1, 5)); // first diff: 4 > 3
+
+	printf("memcmp(a1, a3, 0) = %d (expect 0)\n",
+	ft_memcmp(a1, a3, 0));
 	/* ==================+++++++++================== */
 
 	return (0);
