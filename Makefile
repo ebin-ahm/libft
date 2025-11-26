@@ -6,7 +6,7 @@
 #    By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/26 14:50:56 by ebin-ahm          #+#    #+#              #
-#    Updated: 2025/11/26 21:12:45 by ebin-ahm         ###   ########.fr        #
+#    Updated: 2025/11/26 21:38:17 by ebin-ahm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS    = ft_isalpha.c \
 		  ft_strncmp.c \
 		  ft_memchr.c \
 		  ft_memcmp.c \
+		  ft_strnstr.c \
 
 OBJS    = $(SRCS:.c=.o)
 

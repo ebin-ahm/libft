@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/26 21:24:07 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/26 21:42:49 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,22 @@ int	main(void)
 
 	printf("memcmp(a1, a3, 0) = %d (expect 0)\n",
 	ft_memcmp(a1, a3, 0));
+	/* ==================+++++++++================== */
+
+	/* ================== memcmp ================== */
+	printf("\n-- strnstr test --\n");
+	char d[] = "hello world";
+	char *d1;
+
+	d1 = ft_strnstr(d, "world", 11);
+	printf("1: %s\n", d1);  // expect "world"
+
+	d1 = ft_strnstr(d, "world", 5);
+	printf("2: %p\n", (void *)d1); // expect NULL
+
+	d1 = ft_strnstr(d, "", 5);
+	printf("3: %s\n", d1);  // expect "hello world"
+
 	/* ==================+++++++++================== */
 
 	return (0);
