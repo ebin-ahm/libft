@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/26 21:42:49 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/26 22:01:20 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,17 @@ int	main(void)
 
 	d1 = ft_strnstr(d, "", 5);
 	printf("3: %s\n", d1);  // expect "hello world"
+
+	/* ==================+++++++++================== */
+
+	/* ================== atoi ================== */
+	printf("\n-- atoi test --\n");
+	printf("ft_atoi(\"42\") = %d\n", ft_atoi("42"));                 // 42
+	printf("ft_atoi(\"   -123\") = %d\n", ft_atoi("   -123"));       // -123
+	printf("ft_atoi(\"\\t\\n+56abc\") = %d\n", ft_atoi("\t\n+56abc"));// 56
+	printf("ft_atoi(\"abc123\") = %d\n", ft_atoi("abc123"));         // 0
+	printf("ft_atoi(\"0\") = %d\n", ft_atoi("0"));                   // 0
+
 
 	/* ==================+++++++++================== */
 
