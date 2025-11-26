@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/26 19:35:27 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/26 20:47:50 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int	main(void)
 	/* ==================+++++++++================== */
 
 	/* ================== strncmp ================== */
+	printf("\n-- strncmp test --\n");
 	printf("%d\n", ft_strncmp("hello", "hello", 5));     // 0
 	printf("%d\n", ft_strncmp("hello", "helxo", 3));     // 0  (first 3 letters same)
 	printf("%d\n", ft_strncmp("hello", "helxo", 4));     // 'l' - 'x' = negative
@@ -106,6 +107,15 @@ int	main(void)
 	printf("%d\n", ft_strncmp("", "a", 1));              // negative ('\0' - 'a')
 	printf("%d\n", ft_strncmp("abcdef", "abc\0xx", 6));  // 'd' - '\0' = positive
 
+	/* ==================+++++++++================== */
+
+		/* ================== memchr ================== */
+	printf("\n-- memchr test --\n");
+	char c[] = "hello world";
+	printf("%s\n", (char *)ft_memchr(c, 'o', 11));  // "o world"
+	printf("%s\n", (char *)ft_memchr(c, 'w', 11));  // "world"
+	printf("%s\n", (char *)ft_memchr(c, 'l', 11));  // "llo world"
+	printf("%p\n", ft_memchr(c, 'z', 11));          // NULL
 	/* ==================+++++++++================== */
 
 	return (0);
