@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/26 18:24:13 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/26 19:35:27 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,19 @@ int	main(void)
 	char b[] = "hello world";
 	printf("%s\n", ft_strrchr(b, 'l'));   // "ld"
 	printf("%s\n", ft_strrchr(b, 'o'));   // "orld"
+
+	/* ==================+++++++++================== */
+
+	/* ================== strncmp ================== */
+	printf("%d\n", ft_strncmp("hello", "hello", 5));     // 0
+	printf("%d\n", ft_strncmp("hello", "helxo", 3));     // 0  (first 3 letters same)
+	printf("%d\n", ft_strncmp("hello", "helxo", 4));     // 'l' - 'x' = negative
+	printf("%d\n", ft_strncmp("abc", "abd", 3));         // negative
+	printf("%d\n", ft_strncmp("abcd", "abce", 10));      // negative
+	printf("%d\n", ft_strncmp("abc", "abc", 0));         // 0 (n=0)
+	printf("%d\n", ft_strncmp("a", "", 1));              // positive ('a' - '\0')
+	printf("%d\n", ft_strncmp("", "a", 1));              // negative ('\0' - 'a')
+	printf("%d\n", ft_strncmp("abcdef", "abc\0xx", 6));  // 'd' - '\0' = positive
 
 	/* ==================+++++++++================== */
 
