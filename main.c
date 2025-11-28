@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/26 22:01:20 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:15:13 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,9 +159,33 @@ int	main(void)
 	printf("ft_atoi(\"\\t\\n+56abc\") = %d\n", ft_atoi("\t\n+56abc"));// 56
 	printf("ft_atoi(\"abc123\") = %d\n", ft_atoi("abc123"));         // 0
 	printf("ft_atoi(\"0\") = %d\n", ft_atoi("0"));                   // 0
-
-
 	/* ==================+++++++++================== */
+
+	/* ================== calloc ================== */
+	printf("\n-- calloc test --\n");
+	size_t	count;
+	size_t	index;
+	int		*arr;
+
+	count = 5;
+	arr = (int *)ft_calloc(count, sizeof(int));
+	if (!arr)
+	{
+		printf("ft_calloc failed (returned NULL)\n");
+		return (1);
+	}
+	printf("ft_calloc(%zu, sizeof(int)) allocated array:\n", count);
+	index = 0;
+	while (index < count)
+	{
+		printf("  arr[%zu] = %d\n", index, arr[index]);
+		index++;
+	}
+	free(arr);
+	/* ==================+++++++++================== */
+
+	
+	
 
 	return (0);
 }
