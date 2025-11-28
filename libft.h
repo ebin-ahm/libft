@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:53 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/28 17:16:19 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/28 19:37:31 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

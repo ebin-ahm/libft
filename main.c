@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/28 17:21:51 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/28 20:08:09 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ int	main(void)
 	free(arr);
 	/* ==================+++++++++================== */
 
-		/* ================== calloc ================== */
+	/* ================== strdup ================== */
 	printf("\n-- strdup test --\n");
 	char *orig = "hello world";
 	char *copy;
@@ -202,6 +202,32 @@ int	main(void)
 	printf("orig = \"%s\"  (expect \"hello world\")\n", orig);
 	printf("copy = \"%s\"  (expect \"Hello world\")\n", copy);
 	free(copy);
+	/* ==================+++++++++================== */
+
+	/* ================== substr ================== */
+	printf("\n-- substr test --\n");
+	char *s = "hello world";
+	char *sub;
+
+	/* normal case */
+	sub = ft_substr(s, 0, 5);
+	printf("ft_substr(\"%s\", 0, 5) -> \"%s\" (expect \"hello\")\n", s, sub);
+	free(sub);
+
+	/* middle of string */
+	sub = ft_substr(s, 6, 5);
+	printf("ft_substr(\"%s\", 6, 5) -> \"%s\" (expect \"world\")\n", s, sub);
+	free(sub);
+
+	/* len bigger than remaining */
+	sub = ft_substr(s, 3, 50);
+	printf("ft_substr(\"%s\", 3, 50) -> \"%s\" (expect \"lo world\")\n", s, sub);
+	free(sub);
+
+	/* start past end */
+	sub = ft_substr(s, 20, 5);
+	printf("ft_substr(\"%s\", 20, 5) -> \"%s\" (expect \"\")\n", s, sub);
+	free(sub);
 
 	/* ==================+++++++++================== */
 
