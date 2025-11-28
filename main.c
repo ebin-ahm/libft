@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/28 16:15:13 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/28 17:21:51 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,27 @@ int	main(void)
 		index++;
 	}
 	free(arr);
+	/* ==================+++++++++================== */
+
+		/* ================== calloc ================== */
+	printf("\n-- strdup test --\n");
+	char *orig = "hello world";
+	char *copy;
+
+	copy = ft_strdup(orig);
+	if (!copy)
+	{
+		printf("ft_strdup failed\n");
+		return (1);
+	}
+	printf("orig = \"%s\"\n", orig);
+	printf("copy = \"%s\"\n", copy);
+	copy[0] = 'H';
+	printf("after modifying copy:\n");
+	printf("orig = \"%s\"  (expect \"hello world\")\n", orig);
+	printf("copy = \"%s\"  (expect \"Hello world\")\n", copy);
+	free(copy);
+
 	/* ==================+++++++++================== */
 
 	
