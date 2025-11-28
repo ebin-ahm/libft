@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/28 21:53:41 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/28 22:53:11 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,6 +274,29 @@ int	main(void)
 		s1, s2, joined);
 	free(joined);
 
+	/* ==================+++++++++================== */
+
+	/* ================== strtrim ================== */
+	printf("\n-- strtrim test --\n");
+
+	char *t;
+
+	t = ft_strtrim("  hello  ", " ");
+	printf("\"  hello  \" trimmed by \" \" -> \"%s\" (expect \"hello\")\n", t);
+	free(t);
+
+	t = ft_strtrim("xxxyhelloxyx", "xy");
+	printf("\"xxxyhelloxyx\" trimmed by \"xy\" -> \"%s\" (expect \"hello\")\n", t);
+	free(t);
+
+	t = ft_strtrim("abcabc", "abc");
+	printf("\"abcabc\" trimmed by \"abc\" -> \"%s\" (expect \"\")\n", t);
+	free(t);
+
+	t = ft_strtrim("hello", "xyz");
+	printf("\"hello\" trimmed by \"xyz\" -> \"%s\" (expect \"hello\")\n", t);
+	free(t);
+	
 	/* ==================+++++++++================== */
 
 	
