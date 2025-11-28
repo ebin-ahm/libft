@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/28 20:08:09 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/28 21:53:41 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,6 +228,51 @@ int	main(void)
 	sub = ft_substr(s, 20, 5);
 	printf("ft_substr(\"%s\", 20, 5) -> \"%s\" (expect \"\")\n", s, sub);
 	free(sub);
+
+	/* ==================+++++++++================== */
+
+	/* ================== strjoin ================== */
+	printf("\n-- strjoin test --\n");
+
+	char	*s1;
+	char	*s2;
+	char	*joined;
+	
+	s1 = "hello";
+	s2 = "world";
+	joined = ft_strjoin(s1, s2);
+	if (!joined)
+	{
+		printf("ft_strjoin failed (NULL)\n");
+		return (1);
+	}
+	printf("ft_strjoin(\"%s\", \"%s\") -> \"%s\" (expect \"helloworld\")\n",
+		s1, s2, joined);
+	free(joined);
+
+	// 2) With space: "hello " + "world"
+	s1 = "hello ";
+	s2 = "world";
+	joined = ft_strjoin(s1, s2);
+	printf("ft_strjoin(\"%s\", \"%s\") -> \"%s\" (expect \"hello world\")\n",
+		s1, s2, joined);
+	free(joined);
+
+	// 3) Empty s1: "" + "abc"
+	s1 = "";
+	s2 = "abc";
+	joined = ft_strjoin(s1, s2);
+	printf("ft_strjoin(\"%s\", \"%s\") -> \"%s\" (expect \"abc\")\n",
+		s1, s2, joined);
+	free(joined);
+
+	// 4) Empty s2: "abc" + ""
+	s1 = "abc";
+	s2 = "";
+	joined = ft_strjoin(s1, s2);
+	printf("ft_strjoin(\"%s\", \"%s\") -> \"%s\" (expect \"abc\")\n",
+		s1, s2, joined);
+	free(joined);
 
 	/* ==================+++++++++================== */
 
