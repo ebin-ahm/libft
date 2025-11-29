@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/29 15:34:55 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/29 16:20:06 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -299,8 +299,8 @@ int	main(void)
 	
 	/* ==================+++++++++================== */
 
-	/* ================== split ================== */
-/* ==================== split ==================== */
+
+	/* ==================== split ==================== */
 	char    **result_split;
 	size_t  index_split;
 
@@ -349,7 +349,24 @@ int	main(void)
 	free(result_split);
 
 	/* ==================+++++++++================== */
-	
 
+	/* ==================== itoa ================ */
+	printf("\n-- ft_itoa tests --\n");
+
+	int		values[] = {0, 42, -42, 123456, -123456, -2147483648};
+	size_t	index_itoa = 0;
+	char	*str_num;
+
+	while (index_itoa < 6)
+	{
+	str_num = ft_itoa(values[index_itoa]);
+	if (!str_num)
+		return (1);
+	printf("ft_itoa(%d) = \"%s\"\n", values[index_itoa], str_num);
+	free(str_num);
+	index_itoa++;
+	}
+	/* ==================+++++++++================== */
+	
 	return (0);
 }
