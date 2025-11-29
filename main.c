@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/29 16:20:06 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/29 21:43:47 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 
 #include <stdio.h>
 #include "libft.h"
+
+static char	strmapi_test_func(unsigned int index, char c)
+{
+	/* Even index -> uppercase letters
+	   Odd index  -> lowercase letters
+	   Non-letters stay the same
+	*/
+	if ((index % 2) == 0 && c >= 'a' && c <= 'z')
+		return (c - ('a' - 'A'));
+	if ((index % 2) == 1 && c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
+}
 
 int	main(void)
 {
@@ -367,6 +380,30 @@ int	main(void)
 	index_itoa++;
 	}
 	/* ==================+++++++++================== */
-	
+
+	/* ================= strmapi ================= */
+	printf("\n-- ft_strmapi tests --\n");
+
+	const char	*inputs[] = {
+		"hello world",
+		"42Network",
+		"",
+		"AbCdEfG",
+		NULL
+	};
+	size_t		index_strmapi = 0;
+	char		*result_strmapi;
+
+	while (inputs[index_strmapi] != NULL)
+	{
+		result_strmapi = ft_strmapi(inputs[index_strmapi], strmapi_test_func);
+		if (!result_strmapi)
+			return (1);
+		printf("input [%zu] : \"%s\"\n", index_strmapi, inputs[index_strmapi]);
+		printf("output[%zu] : \"%s\"\n\n", index_strmapi, result_strmapi);
+		free(result_strmapi);
+		index_strmapi++;
+	}
+	/* ========================================== */
 	return (0);
 }
