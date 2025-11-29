@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/30 03:04:57 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/30 03:52:46 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -458,8 +458,34 @@ int	main(void)
 
 	char	*null_str = NULL;
 	ft_putstr_fd(null_str, 1); // should do nothing and not crash
-/* =============================================== */
+	/* =============================================== */
+
+	/* ================= putendl ================= */
+	printf("\n-- ft_putendl_fd tests --\n");
+
+	ft_putendl_fd("Hello, world!", 1);
+	ft_putendl_fd("This line goes to stdout", 1);
+	ft_putendl_fd("This line goes to stderr", 2);
+
+	char	*null_line = NULL;
+	ft_putendl_fd(null_line, 1); // should do nothing, no crash
+	/* ================================================ */
+
+	/* ================= putnbr ================ */
+	printf("\n-- ft_putnbr_fd tests --\n");
+
+	int		values_putnbr[] = {0, 42, -42, 123456, -123456, -2147483648};
+	size_t	index_putnbr = 0;
+
+	while (index_putnbr < 6)
+	{
+		printf("n = %d -> \"", values_putnbr[index_putnbr]);
+		ft_putnbr_fd(values_putnbr[index_putnbr], 1);
+		printf("\"\n");
+		index_putnbr++;
+	}
+	/* =============================================== */
 
 
 	return (0);
-}
+	}

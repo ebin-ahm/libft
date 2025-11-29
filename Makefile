@@ -6,7 +6,7 @@
 #    By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/26 14:50:56 by ebin-ahm          #+#    #+#              #
-#    Updated: 2025/11/30 02:43:16 by ebin-ahm         ###   ########.fr        #
+#    Updated: 2025/11/30 03:33:45 by ebin-ahm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,8 @@ SRCS    = ft_isalpha.c \
 		  ft_striteri.c \
 		  ft_putchar_fd.c \
 		  ft_putstr_fd.c \
+		  ft_putendl_fd.c \
+		  ft_putnbr_fd.c \
 
 OBJS    = $(SRCS:.c=.o)
 
