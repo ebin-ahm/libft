@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/29 21:43:47 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/29 23:13:30 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ static char	strmapi_test_func(unsigned int index, char c)
 	if ((index % 2) == 1 && c >= 'A' && c <= 'Z')
 		return (c + ('a' - 'A'));
 	return (c);
+}
+
+static void	striteri_test_func(unsigned int index, char *c)
+{
+	if ((index % 2) == 0 && *c >= 'a' && *c <= 'z')
+		*c = *c - ('a' - 'A');
+	else if ((index % 2) == 1 && *c >= 'A' && *c <= 'Z')
+		*c = *c + ('a' - 'A');
 }
 
 int	main(void)
@@ -403,6 +411,26 @@ int	main(void)
 		printf("output[%zu] : \"%s\"\n\n", index_strmapi, result_strmapi);
 		free(result_strmapi);
 		index_strmapi++;
+	}
+	/* ========================================== */
+
+	/* ================= striteri ================= */
+	printf("\n-- ft_striteri tests --\n");
+
+	char	str1[] = "hello world";
+	char	str2[] = "42Network";
+	char	str3[] = "";
+	char	str4[] = "AbCdEfG";
+	char	*strings[] = {str1, str2, str3, str4, NULL};
+
+	size_t	index_striteri = 0;
+
+	while (strings[index_striteri] != NULL)
+	{
+		printf("\nBefore[%zu]: \"%s\"\n", index_striteri, strings[index_striteri]);
+		ft_striteri(strings[index_striteri], striteri_test_func);
+		printf("After [%zu]: \"%s\"\n", index_striteri, strings[index_striteri]);
+		index_striteri++;
 	}
 	/* ========================================== */
 	return (0);
