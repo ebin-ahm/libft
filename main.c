@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/28 22:53:11 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/29 15:34:55 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -299,7 +299,56 @@ int	main(void)
 	
 	/* ==================+++++++++================== */
 
-	
+	/* ================== split ================== */
+/* ==================== split ==================== */
+	char    **result_split;
+	size_t  index_split;
+
+	printf("\n-- ft_split tests --\n");
+
+	/* Test 1 */
+	printf("\nTest 1: \"hello world  42  piscine\", sep = ' '\n");
+	result_split = ft_split("hello world  42  piscine", ' ');
+	if (!result_split)
+    	return (1);
+	index_split = 0;
+	while (result_split[index_split] != NULL)
+	{
+    	printf("word[%zu] = \"%s\"\n", index_split, result_split[index_split]);
+    	free(result_split[index_split]);
+    	index_split++;
+	}
+	free(result_split);
+
+	/* Test 2 */
+	printf("\nTest 2: \",,,abc,,def,,\", sep = ','\n");
+	result_split = ft_split(",,,abc,,def,,", ',');
+	if (!result_split)
+    	return (1);
+	index_split = 0;
+	while (result_split[index_split] != NULL)
+	{
+    	printf("word[%zu] = \"%s\"\n", index_split, result_split[index_split]);
+    	free(result_split[index_split]);
+    	index_split++;
+	}
+	free(result_split);
+
+	/* Test 3 */
+	printf("\nTest 3: \";;;;\", sep = ';'\n");
+	result_split = ft_split(";;;;", ';');
+	if (!result_split)
+    	return (1);
+	index_split = 0;
+	while (result_split[index_split] != NULL)
+	{
+    	printf("word[%zu] = \"%s\"\n", index_split, result_split[index_split]);
+    	free(result_split[index_split]);
+    	index_split++;
+	}
+	free(result_split);
+
+	/* ==================+++++++++================== */
 	
 
 	return (0);
