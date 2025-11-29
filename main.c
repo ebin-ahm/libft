@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/29 23:13:30 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/30 02:30:59 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -433,5 +433,22 @@ int	main(void)
 		index_striteri++;
 	}
 	/* ========================================== */
+
+	/* ================= putchar ================= */
+	printf("\n-- ft_putchar_fd tests --\n");
+
+	ft_putchar_fd('A', 1);  // stdout
+	ft_putchar_fd('\n', 1);
+	ft_putchar_fd('B', 1);
+	ft_putchar_fd('\n', 1);
+
+	ft_putchar_fd('E', 2);  // stderr
+	ft_putchar_fd('r', 2);
+	ft_putchar_fd('r', 2);
+	ft_putchar_fd('o', 2);
+	ft_putchar_fd('r', 2);
+	ft_putchar_fd('\n', 2);
+	/* ========================================== */
+
 	return (0);
 }
