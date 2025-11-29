@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/30 02:30:59 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/11/30 03:04:57 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -449,6 +449,17 @@ int	main(void)
 	ft_putchar_fd('r', 2);
 	ft_putchar_fd('\n', 2);
 	/* ========================================== */
+
+	/* ================= putstr ================= */
+	printf("\n-- ft_putstr_fd tests --\n");
+
+	ft_putstr_fd("Hello, stdout!\n", 1);
+	ft_putstr_fd("This goes to stderr.\n", 2);
+
+	char	*null_str = NULL;
+	ft_putstr_fd(null_str, 1); // should do nothing and not crash
+/* =============================================== */
+
 
 	return (0);
 }
