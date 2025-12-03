@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/30 03:52:46 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/12/03 22:06:49 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -472,7 +472,6 @@ int	main(void)
 	/* ================================================ */
 
 	/* ================= putnbr ================ */
-	printf("\n-- ft_putnbr_fd tests --\n");
 
 	int		values_putnbr[] = {0, 42, -42, 123456, -123456, -2147483648};
 	size_t	index_putnbr = 0;
@@ -486,6 +485,185 @@ int	main(void)
 	}
 	/* =============================================== */
 
+	/* =============================================================*/
+	
+	/* ============ B B B   OOO   N   N   U   U  SSSS  ============ */
+	/* ============ B   B   OOO   N   N   U   U  SSSS  ============ */
+	/* ============ B   B  O   O  NN  N   U   U  S     ============ */
+	/* ============ BBBB   O   O  N N N   U   U  SSS   ============ */
+	/* ============ B   B  O   O  N  NN   U   U     S  ============ */
+	/* ============ BBBB    OOO   N   N    UUU  SSSS  ============ */
+
+	/* ================= lstnew ==================================== */
+	printf("\n-- lstnew --\n");
+
+	t_list	*node1;
+	t_list	*node2;
+	t_list	*node3;
+
+	node1 = ft_lstnew(ft_strdup("hello"));
+	node2 = ft_lstnew(ft_strdup("42"));
+	node3 = ft_lstnew(ft_strdup("libft"));
+
+	if (!node1 || !node2 || !node3)
+	{
+		printf("ft_lstnew returned NULL (malloc failed)\n");
+		return (1);
+	}
+
+	printf("node1 content: \"%s\", next: %p\n",
+		(char *)node1->content, (void *)node1->next);
+	printf("node2 content: \"%s\", next: %p\n",
+		(char *)node2->content, (void *)node2->next);
+	printf("node3 content: \"%s\", next: %p\n",
+		(char *)node3->content, (void *)node3->next);
+
+	/* free content + nodes */
+	free(node1->content);
+	free(node2->content);
+	free(node3->content);
+	free(node1);
+	free(node2);
+	free(node3);
+	/* =============================================== */
+
+	/* ================= lstadd_front ================ */
+	printf("\n-- lstadd_front --\n");
+
+	t_list	*node4;
+	t_list	*node5;
+	t_list	*node6;
+	t_list	*head;
+	t_list	*current;
+	t_list	*next;
+	size_t	index1;
+	
+	head = NULL;
+	node4 = ft_lstnew(ft_strdup("your"));
+	node5 = ft_lstnew(ft_strdup("cheese"));
+	node6 = ft_lstnew(ft_strdup("pie"));
+
+	if (!node4 || !node5 || !node6)
+	{
+		printf("ft_lstnew returned NULL (malloc failed)\n");
+		return (1);
+	}
+	ft_lstadd_front(&head, node4);
+	ft_lstadd_front(&head, node5);
+	ft_lstadd_front(&head, node6);
+
+	current = head;
+	index1 = 0;
+	while (current)
+	{
+		printf("node %zu: \"%s\"\n", index1, (char *)current->content);
+		current = current->next;
+		index1++;
+	}
+
+	current = head;
+	while (current)
+	{
+		next = current->next;
+		free(current->content);
+		free(current);
+		current = next;
+	}
+	/* =============================================== */
+
+	/* ================== lstlast ==================== */
+	printf("\n-- ft_lstlast tests --\n");
+
+	t_list	*list3;
+	t_list	*l1;
+	t_list	*l2;
+	t_list	*l3;
+	t_list	*last_node;
+
+	list3 = NULL;
+	last_node = ft_lstlast(list3);
+	printf("Empty list: last = %p (expected NULL)\n", (void *)last_node);
+
+	l1 = ft_lstnew(ft_strdup("first"));
+	l2 = ft_lstnew(ft_strdup("middle"));
+	l3 = ft_lstnew(ft_strdup("last"));
+
+	if (!l1 || !l2 || !l3)
+	{
+		printf("ft_lstnew returned NULL (malloc failed)\n");
+		return (1);
+	}
+
+	list3 = l1;
+	l1->next = l2;
+	l2->next = l3;
+
+	last_node = ft_lstlast(list3);
+	if (last_node)
+		printf("Last node content: \"%s\" (expected \"last\")\n",
+			(char *)last_node->content);
+	else
+		printf("Last node is NULL (unexpected!)\n");
+
+	t_list	*cur1 = list3;
+	t_list	*next3;
+
+	while (cur1)
+	{
+		next3 = cur1->next;
+		free(cur1->content);
+		free(cur1);
+		cur1 = next3;
+	}
+	/* ============================================= */
+
+	/* ================= lstadd_back ================== */
+	printf("\n-- ft_lstadd_back tests --\n");
+
+	t_list	*head4;
+	t_list	*b1;
+	t_list	*b2;
+	t_list	*b3;
+	t_list	*cur2;
+	t_list	*next4;
+	size_t	index_back;
+
+	head4 = NULL;
+
+	b1 = ft_lstnew(ft_strdup("first"));
+	b2 = ft_lstnew(ft_strdup("second"));
+	b3 = ft_lstnew(ft_strdup("third"));
+
+	if (!b1 || !b2 || !b3)
+	{
+		printf("ft_lstnew returned NULL (malloc failed)\n");
+		return (1);
+	}
+
+	ft_lstadd_back(&head4, b1); 
+	ft_lstadd_back(&head4, b2); 
+	ft_lstadd_back(&head4, b3); 
+
+
+	cur2 = head4;
+	index_back = 0;
+	while (cur2)
+	{
+		printf("node %zu: \"%s\"\n", index_back, (char *)cur2->content);
+		cur2 = cur2->next;
+		index_back++;
+	}
+
+	cur2 = head4;
+	while (cur2)
+	{
+		next4 = cur2->next;
+		free(cur2->content);
+		free(cur2);
+		cur2 = next4;
+	}
+	/* =============================================== */
 
 	return (0);
+
 	}
