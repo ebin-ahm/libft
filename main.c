@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/12/03 22:06:49 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/12/03 23:25:24 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -664,6 +664,70 @@ int	main(void)
 	}
 	/* =============================================== */
 
+	/* ================= lstdelone ==================== */
+
+	printf("\n-- ft_lstdelone tests --\n");
+
+	t_list	*head_lstdelone;
+	t_list	*node_first;
+	t_list	*node_middle;
+	t_list	*node_last;
+	t_list	*current_lstdelone;
+	t_list	*next_lstdelone;
+	t_list	*after_middle;
+	size_t	index_lstdelone;
+
+	node_first = ft_lstnew(ft_strdup("first"));
+	node_middle = ft_lstnew(ft_strdup("middle"));
+	node_last = ft_lstnew(ft_strdup("last"));
+	if (!node_first || !node_middle || !node_last)
+	{
+		printf("ft_lstnew returned NULL (malloc failed)\n");
+		return (1);
+	}
+	head_lstdelone = node_first;
+	node_first->next = node_middle;
+	node_middle->next = node_last;
+
+	printf("Before delete:\n");
+	current_lstdelone = head_lstdelone;
+	index_lstdelone = 0;
+	while (current_lstdelone)
+	{
+		printf("  node %zu: \"%s\"\n",
+			index_lstdelone, (char *)current_lstdelone->content);
+		current_lstdelone = current_lstdelone->next;
+		index_lstdelone++;
+	}
+
+	printf("\nDeleting middle node (\"middle\")...\n");
+	after_middle = node_middle->next;          
+	ft_lstdelone(node_middle, free);           
+	node_first->next = after_middle;
+
+	printf("After delete:\n");
+	current_lstdelone = head_lstdelone;
+	index_lstdelone = 0;
+	while (current_lstdelone)
+	{
+		printf("  node %zu: \"%s\"\n",
+			index_lstdelone, (char *)current_lstdelone->content);
+		current_lstdelone = current_lstdelone->next;
+		index_lstdelone++;
+	}
+
+
+	current_lstdelone = head_lstdelone;
+	while (current_lstdelone)
+	{
+		next_lstdelone = current_lstdelone->next;
+		free(current_lstdelone->content);
+		free(current_lstdelone);
+		current_lstdelone = next_lstdelone;
+	}
+
+	/* =============================================== */
+	
 	return (0);
 
 	}
