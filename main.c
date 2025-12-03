@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 14:53:41 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/12/03 23:25:24 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/12/03 23:56:05 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -727,7 +727,56 @@ int	main(void)
 	}
 
 	/* =============================================== */
-	
+
+	/* ================= lstclear ===================== */
+	printf("\n-- ft_lstclear tests --\n");
+
+	t_list	*head_lstclear;
+	t_list	*node_a;
+	t_list	*node_b;
+	t_list	*node_c;
+
+	node_a = ft_lstnew(ft_strdup("alpha"));
+	node_b = ft_lstnew(ft_strdup("beta"));
+	node_c = ft_lstnew(ft_strdup("gamma"));
+	if (!node_a || !node_b || !node_c)
+	{
+		printf("ft_lstnew returned NULL (malloc failed)\n");
+		return (1);
+	}
+	head_lstclear = node_a;
+	node_a->next = node_b;
+	node_b->next = node_c;
+
+	printf("Before clear:\n");
+	t_list	*current_lstclear = head_lstclear;
+	size_t	index_lstclear = 0;
+	while (current_lstclear)
+	{
+		printf("  node %zu: \"%s\"\n",
+			index_lstclear, (char *)current_lstclear->content);
+		current_lstclear = current_lstclear->next;
+		index_lstclear++;
+	}
+
+	printf("\nClearing list with ft_lstclear...\n");
+	ft_lstclear(&head_lstclear, free);
+
+	printf("After clear: head_lstclear = %p (expected NULL)\n",
+		(void *)head_lstclear);
+
+	printf("List contents after clear:\n");
+	current_lstclear = head_lstclear;
+	index_lstclear = 0;
+	while (current_lstclear)
+	{
+		printf("  node %zu: \"%s\"\n",
+			index_lstclear, (char *)current_lstclear->content);
+		current_lstclear = current_lstclear->next;
+		index_lstclear++;
+	}
+	/* =============================================== */
+
 	return (0);
 
 	}
