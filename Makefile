@@ -6,7 +6,7 @@
 #    By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/26 14:50:56 by ebin-ahm          #+#    #+#              #
-#    Updated: 2025/12/04 00:19:51 by ebin-ahm         ###   ########.fr        #
+#    Updated: 2025/12/04 18:26:29 by ebin-ahm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ BONUS_SRCS = ft_lstnew_bonus.c \
 			 ft_lstdelone_bonus.c \
 			 ft_lstclear_bonus.c \
 			 ft_lstiter_bonus.c \
+			 ft_lstmap_bonus.c 
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
