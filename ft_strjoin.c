@@ -6,7 +6,7 @@
 /*   By: ebin-ahm <ebin-ahm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:22:06 by ebin-ahm          #+#    #+#             */
-/*   Updated: 2025/11/28 21:51:16 by ebin-ahm         ###   ########.fr       */
+/*   Updated: 2025/12/05 14:04:20 by ebin-ahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		joined[index] = s2[index - len1];
 		index++;
 	}
+	joined[index] = '\0';
 	return (joined);
 }
